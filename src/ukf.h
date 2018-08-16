@@ -66,7 +66,10 @@ public:
 
   ///* Sigma point spreading parameter
   double lambda_;
-
+  
+  ///* Measurement noise covariance matrix
+  MatrixXd R_laser_;
+  MatrixXd R_radar_;
 
   /**
    * Constructor
@@ -102,6 +105,11 @@ public:
    * @param meas_package The measurement at k+1
    */
   void UpdateRadar(MeasurementPackage meas_package);
+
+  ///* ofstream instance
+  std::ofstream outfile_radar_;
+  std::ofstream outfile_laser_;
+
 };
 
 #endif /* UKF_H */
